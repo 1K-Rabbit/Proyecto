@@ -1,7 +1,3 @@
-//Nombre: Roberto Alain Rivera Bravo
-//Matrícula: A01411516
-//Carrera: IMT11
-
 package sppproyecto2;
 import java.util.Scanner;
 
@@ -14,6 +10,7 @@ public class SPPProyecto2 {
     //Método menú
     public static void menú(){
         Scanner teclado = new Scanner (System.in);
+        //Declaración de variables
         String option;
         
         System.out.println("\n//Calculadora de conversiones// \n");
@@ -49,14 +46,18 @@ public class SPPProyecto2 {
                 break;
             case "4":
                 System.out.println("\nConversión de pesos:");
+                //manda método pesos
                 pesos();
+                //manda método salir
                 salir();
                 break;
             case "5":
+                //manda método salir
                 salir();
                 break;
             default:
                 System.out.println("\nUsted ha puesto una opción incorrecta, favor de verificar opción deseada");
+                //regresa método menú
                 menú();   
         }
   
@@ -71,43 +72,48 @@ public class SPPProyecto2 {
         System.out.println("No: Presione E");
         System.out.println("Sí: Presione cualquier otra tecla\n");
         letra = teclado.nextLine();
+        //verifica si presiono E
         if(letra.equals("E")){
+            //termina el programa
             System.exit(0);
         }
-        
+        //si la condición del if es falsa, se invoca a método menú
         menú();   
     }
 
-    
+    //método líquidos
     public static void líquidos (){
         Scanner teclado = new Scanner (System.in);
         double litro, galon;
-        String o;
+        String option;
         
         System.out.println("1. Litros a Galones");
         System.out.println("2. Galones a litros");
-        o = teclado.nextLine();
+        option = teclado.nextLine();
         
-        if(o.equals("1")){
+        //verifica si el valor String es 1, hace la conversión y sale del método
+        if(option.equals("1")){
             System.out.println("\nIntroduzca un valor de litros");
             litro = teclado.nextDouble();
             galon = (litro * 0.26417);
             System.out.println("\n"+litro+" litros equivalen a "+galon+" galones");
         }
-        else 
-            if(o.equals("2")){
+        else
+            //verifica si el valor String es 2, hace la conversión y sale del método
+            if(option.equals("2")){
             System.out.println("\nIntroduzca un valor de galones");
             galon = teclado.nextDouble();
             litro = (galon/ 0.26417);
             System.out.println("\n"+galon+" galones equivalen a "+litro+" litros");
         }
-            else{
+            //muestra opción no válida si String no es 1 o 2 y sale del método
+        else{
             System.out.println("\nOpción no válida");
-            }
+        }
 
     }
 
-    
+    //método distancias 
     public static void distancias(){
         Scanner teclado = new Scanner (System.in);
         String option;
@@ -119,144 +125,174 @@ public class SPPProyecto2 {
         
         switch(option){
             case "1":
+                //manda a submenú centímetros/pulgadas
                 centimetroPulgada();
                 break;
             case "2":
+                //manda a submenú metros/pies
                 metroPie();
                 break;
             case "3":
+                //manda a submenú kilómetros/millas
                 kilometroMilla();
                 break;
             default:
+                //si se lee un string inválido muestra en pantalla que es una opción no válida
                 System.out.println("\nOpción no válida");       
         }
     }
-    
+    //submenú de centímetros a pulgadas
     public static void centimetroPulgada(){
         Scanner teclado = new Scanner (System.in);
         double centimetro, pulgada;
-        String o;
+        String option;
         
         System.out.println("\n1. Centímetro a Pulgada");
         System.out.println("2. Pulgada a Centímetro");
-        o = teclado.nextLine();
+        option = teclado.nextLine();
         
-        if(o.equals("1")){
+        //verifica si el valor String es 1, hace la conversión y sale del método
+        if(option.equals("1")){
             System.out.println("\nIntroduzca un valor de centímetros (cm)");
             centimetro = teclado.nextDouble();
             pulgada = (centimetro/2.54);
             System.out.println("\n"+centimetro+" cm equivalen a "+pulgada+" in");
         }
-        else if(o.equals("2")){
+        else 
+            //verifica si el valor String es 2, hace la conversión y sale del método
+            if(option.equals("2")){
             System.out.println("\nIntroduzca un valor de pulgadas (in)");
             pulgada = teclado.nextDouble();
             centimetro = (pulgada*2.54);
             System.out.println("\n"+pulgada+" pulgadas equivalen a "+centimetro+" centímetro");
-        }else{
+        }
+        //muestra opción no válida si String no es 1 o 2 y sale del método
+        else{
             System.out.println("\nOpción no válida");
         }
     }
-    
+    //submenú de metros a pies
     public static void metroPie(){
         Scanner teclado = new Scanner (System.in);
         double metro, pie;
-        String o;
+        String option;
         
         System.out.println("\n1. Metro a Pie");
         System.out.println("2. Pie a Metro");
-        o = teclado.nextLine();
-        
-        if(o.equals("1")){
+        option = teclado.nextLine();
+
+        //verifica si el valor String es 1, hace la conversión y sale del método
+        if(option.equals("1")){
             System.out.println("\nIntroduzca un valor de metros (m)");
             metro = teclado.nextDouble();
             pie = (metro/.3048);
             System.out.println("\n"+metro+" m equivalen a "+pie+" ft");
         }
-        else if(o.equals("2")){
+        else 
+            //verifica si el valor String es 2, hace la conversión y sale del método
+            if(option.equals("2")){
             System.out.println("\nIntroduzca un valor de pies (ft)");
             pie = teclado.nextDouble();
             metro = (pie*.3048);
             System.out.println("\n"+pie+" ft equivalen a "+metro+" m");
-        }else{
+        }
+        //muestra opción no válida si String no es 1 o 2 y sale del método
+        else{
             System.out.println("\nOpción no válida");    
         }
         
     }
- 
+    //submenú de kilómetros a millas
     public static void kilometroMilla(){
         Scanner teclado = new Scanner (System.in);
         double kilometro, milla;
-        String o;
+        String option;
         
         System.out.println("\n1. Kilómetro a Milla");
         System.out.println("2. Milla a Kilómetro");
-        o = teclado.nextLine();
+        option = teclado.nextLine();
         
-        if(o.equals("1")){
+        //verifica si el valor String es 1, hace la conversión y sale del método
+        if(option.equals("1")){
             System.out.println("\nIntroduzca un valor de kilómetros (Km)");
             kilometro = teclado.nextDouble();
             milla = (kilometro/1.609344);
             System.out.println("\n"+kilometro+" km equivalen a "+milla+" mi");
         }
-        else if(o.equals("2")){
+        else 
+            //verifica si el valor String es 2, hace la conversión y sale del método
+            if(option.equals("2")){
             System.out.println("\nIntroduzca un valor de pies (ft)");
             milla = teclado.nextDouble();
             kilometro = (milla*1.609344);
             System.out.println("\n"+milla+" mi equivalen a "+kilometro+" km");
-        }else{
+        }
+        //muestra opción no válida si String no es 1 o 2 y sale del método
+        else{
             System.out.println("\nOpción no válida");
         }
            
     }
 
-    
+    //método temperaturas
     public static void temperaturas(){
         Scanner teclado = new Scanner (System.in);
         double cent, fahr;
-        String o;
+        String option;
         
         System.out.println("1. Centígrados a Fahrenheit");
         System.out.println("2. Fahrenheit a Centígrados");
-        o = teclado.nextLine();
+        option = teclado.nextLine();
         
-        if(o.equals("1")){
+        //verifica si el valor String es 1, hace la conversión y sale del método
+        if(option.equals("1")){
             System.out.println("\nIntroduzca un valor en grados centígrados (°C)");
             cent = teclado.nextDouble();
             fahr = ((cent*9/5)+32);
             System.out.println("\n"+cent+" °C equivalen a "+fahr+" °F");
         }
-        else if(o.equals("2")){
+        else 
+            //verifica si el valor String es 2, hace la conversión y sale del método
+            if(option.equals("2")){
             System.out.println("\nIntroduzca un valor en grados fahrenheit (°F)");
             fahr = teclado.nextDouble();
             cent = ((fahr-32)*5/9);
             System.out.println("\n"+fahr+" °F equivalen a "+cent+" °C");   
-        }else{
+        }
+        //muestra opción no válida si String no es 1 o 2 y sale del método
+        else{
             System.out.println("\nOpción no válida");
         }
         
     }
 
-    
+    //métoodo pesos
     public static void pesos(){
         Scanner teclado = new Scanner (System.in);
-        double o, gramos, libras;
+        double gramos, libras;
+        String option;
         
         System.out.println("1. Gramos a Libras");
         System.out.println("2. Libras a Gramos");
-        o = teclado.nextDouble();
+        option = teclado.nextLine();
         
-        if(o==1){
+        //verifica si el valor String es 1, hace la conversión y sale del método
+        if(option.equals("1")){
             System.out.println("\nIntroduzca un valor en gramos");
             gramos = teclado.nextDouble();
             libras = (gramos/453.59237);
             System.out.println("\n"+gramos+" gramos equivalen a "+libras+" libras");       
         }
-        else if(o==2){
+        else 
+            //verifica si el valor String es 2, hace la conversión y sale del método
+            if(option.equals("2")){
             System.out.println("\nIntroduzca un valor en libras");
             libras = teclado.nextDouble();
             gramos = (libras*453.59237);
             System.out.println("\n"+libras+" libras equivalen a "+gramos+" gramos");
-        }else{
+        }
+        //muestra opción no válida si String no es 1 o 2 y sale del método
+        else{
             System.out.println("\nOpción no válida");
         }
         
